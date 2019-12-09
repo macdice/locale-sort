@@ -34,17 +34,18 @@ cb(LPWSTR locale, DWORD flags, LPARAM unused)
 
 	if (_wsetlocale(LC_ALL, locale))
 	{
-	    /* int ordinary = */
-	    /* 	cmp(s1, s3) < 0 && cmp(s3, s4) < 0 && cmp(s1, s4) < 0; */
-	    /* verdict = ordinary ? "typical" : "unusual"; */
-	    if (glocale)
-		_free_locale(glocale);
-	    glocale = NULL;
-	    printf("%S: %d %d %d\n", locale, lt(s1, s2), lt(s2, s3), lt(s3, s1));
 	    glocale = _wcreate_locale(LC_ALL, locale);
 	    if (!glocale)
+	    {
 		puts("_wcreate_locale failed");
-	    printf("%S: %d %d %d\n", locale, lt(s1, s2), lt(s2, s3), lt(s3, s1));
+		return TRUE;
+	    }
+	    if (lt(s1, s2) != 0 ||
+		lt(s2, s3) != 0 ||
+		lt(s3, s1) != -1 ||
+		lt(s1, s3) != 0)
+	      printf("%S: %d %d %d\n", locale, lt(s1, s2), lt(s2, s3), lt(s3, s1));
+	    _free_locale(glocale);
 	}
 	else
 	    printf("%S: setlocale failed\n", locale);
