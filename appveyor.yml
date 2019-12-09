@@ -1,5 +1,6 @@
 #image: Visual Studio 2015
-image: Visual Studio 2017
+#image: Visual Studio 2017
+image: Visual Studio 2019
 
 # the Visual Studio 2015 version
 #install:
@@ -7,8 +8,12 @@ image: Visual Studio 2017
 # - call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
 
 # the Visual Studio 2017 version
+#install:
+# - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
+
+# the Visual Studio 2019 version
 install:
- - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
+ - call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
 
 build_script:
  - cl /EHsc locale-sort.c
