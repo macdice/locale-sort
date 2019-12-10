@@ -30,7 +30,7 @@ cb(LPWSTR locale, DWORD flags, LPARAM unused)
 	wchar_t s2[] = { 0x11a7, 0xd7a2, 0x1188, 0x0 };
 	wchar_t s3[] = { 0xd7a2, 0x11a7, 0x1188, 0x0 };
 
-	if (_wsetlocale(LC_ALL, locale))
+//	if (_wsetlocale(LC_ALL, locale))
 	{
 	    glocale = _wcreate_locale(LC_ALL, locale);
 	    if (!glocale)
@@ -46,8 +46,8 @@ cb(LPWSTR locale, DWORD flags, LPARAM unused)
 	      printf("%S: %d %d %d\n", locale, lt(s1, s2), lt(s2, s3), lt(s1, s3));
 	    _free_locale(glocale);
 	}
-	else
-	    printf("%S: setlocale failed\n", locale);
+//	else
+//	    printf("%S: setlocale failed\n", locale);
 
 	return TRUE;
 }
