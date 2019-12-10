@@ -38,10 +38,12 @@ cb(LPWSTR locale, DWORD flags, LPARAM unused)
 		puts("_wcreate_locale failed");
 		return TRUE;
 	    }
+	    /*
 	    if (lt(s1, s2) != 0 ||
 		lt(s2, s3) != 0 ||
 		lt(s3, s1) != -1)
-	      printf("%S: %d %d %d\n", locale, lt(s1, s2), lt(s2, s3), lt(s3, s1));
+		*/
+	      printf("%S: %d %d %d\n", locale, lt(s1, s2), lt(s2, s3), lt(s1, s3));
 	    _free_locale(glocale);
 	}
 	else
