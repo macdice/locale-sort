@@ -56,5 +56,6 @@ int
 main(int argc, char **argv)
 {
 	EnumSystemLocalesEx(cb, 0, (LPARAM) NULL, NULL);
+	cb("Korean_100_CS_AS", 0, NULL);
 	return 0;
 }
